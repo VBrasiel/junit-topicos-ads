@@ -1,20 +1,35 @@
 package com.example.project;
 
+import java.util.ArrayList;
+
 public class Turma {
-    
+    ArrayList<Double> notas = new ArrayList();
+
+    double soma;
+    double media;
+    int quantMedia;
+
     public void addNota(double nota) {
-        return;
+        notas.add(nota);
+
+        soma += nota;
+        media = soma / notas.size();
     }
 
     public int getQuantidadeNotas() {
-        return 0;
+        return notas.size();
     }
 
     public double getMediaDasNotas() {
-        return 0.0;
+        return media;
     }
 
     public int getQuantidadeNotasMeioresQueAMedia() {
-        return 0;
+        for (int i = 0; i < notas.size(); i++) {
+            if (notas.get(i) > media) {
+                quantMedia += 1;
+            }
+        }
+        return quantMedia;
     }
 }
